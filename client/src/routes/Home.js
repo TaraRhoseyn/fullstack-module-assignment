@@ -1,8 +1,11 @@
 import React from 'react'
+import H1 from '../components/H1'
 
 function Home() {
 	return (
-		<h1>Home page</h1>
+		<div className="container">
+			<H1>Home</H1>
+		</div>
 	)
 }
 

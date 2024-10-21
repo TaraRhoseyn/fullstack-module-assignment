@@ -1,8 +1,11 @@
 import React from 'react'
+import H1 from '../components/H1'
 
 function About() {
 	return (
-		<h1>About page</h1>
+		<div className="container">
+			<H1>About us</H1>
+		</div>
 	)
 }
 

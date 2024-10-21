@@ -1,8 +1,11 @@
 import React from 'react'
+import H1 from '../components/H1'
 
 function LogIn() {
 	return (
-		<h1>Log in page</h1>
+		<div className="container">
+			<H1>Log in</H1>
+		</div>
 	)
 }
 

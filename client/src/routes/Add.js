@@ -1,8 +1,11 @@
 import React from 'react'
+import H1 from '../components/H1'
 
 function Add() {
 	return (
-		<h1>Add page</h1>
+		<div className="container">
+			<H1>Add furniture</H1>
+		</div>
 	)
 }
 

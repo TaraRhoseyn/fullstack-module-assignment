@@ -1,8 +1,11 @@
 import React from 'react'
+import H1 from '../components/H1'
 
 function SignUp() {
 	return (
-		<h1>Sign up page</h1>
+		<div className="container">
+			<H1>Sign up</H1>
+		</div>
 	)
 }
 

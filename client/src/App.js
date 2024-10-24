@@ -18,7 +18,7 @@ function App() {
     <Router>
 			<>
 				<Navbar />
-				<div>
+				<main>
 					<Routes>
 						<Route exact path="/" element={<Home />} />
 						<Route path="/add" element={<Add />} />
@@ -28,7 +28,7 @@ function App() {
 						<Route path="/signup" element={<SignUp />} />
 						<Route path="/view" element={<View />} />
 					</Routes>
-				</div>
+				</main>
 			</>
 		</Router>
   );

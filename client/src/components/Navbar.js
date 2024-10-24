@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
 	return (
-		<div>
-			<nav>
+		<nav class="d-flex flex-column p-5 mr-5">
+			<Link to="/">
+				<p>Home</p>
+			</Link>
 			<Link to="/edit">
 				<p>Edit</p>
 			</Link>
@@ -14,9 +16,7 @@ function Navbar() {
 			<Link to="/view">
 				<p>View</p>
 			</Link>
-			<Link to="/">
-				<p>Home</p>
-			</Link>
+			
 			<Link to="/login">
 				<p>LogIn</p>
 			</Link>
@@ -26,8 +26,7 @@ function Navbar() {
 			<Link to="/about">
 				<p>About</p>
 			</Link>
-			</nav>
-		</div>
+		</nav>
 	);
 }
 

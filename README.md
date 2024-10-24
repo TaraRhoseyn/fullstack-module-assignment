@@ -1,6 +1,12 @@
 # React Project Example
 
-To use this repository:
-- Click the "Use this template" button in the upper right
-- Choose a name for your repository and create it
-- In your own repository, click the green "Gitpod" button
+## Starting up the frontend server
+Change directory into the correct dir:
+```
+cd client
+```
+Start up the node server to run the React instance:
+```
+npm start
+```
+This will export a local port on your PC and you can visit your React site.

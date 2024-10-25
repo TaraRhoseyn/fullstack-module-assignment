@@ -19,7 +19,7 @@ Maybe use (-v) for putting it in verbose mode.
 
 Create docker container:
 ```
-docker run -dp 8000:3000 --name fullstack-module-assignment-container fullstack-module-assignment-image:latest
+docker run -p 3000:3000 --name fullstack-module-assignment-container fullstack-module-assignment-image:latest
 ```
 
 Issue:
@@ -27,3 +27,15 @@ Issue:
 - changed this
 - react-scripts now working
 - but react-script now returning an issue when attempting to run the container, cannot file client/public/index.html
+
+New try:
+```
+FROM node:18
+WORKDIR /client
+COPY client/package.json ./
+RUN npm install
+COPY client/public ./public
+COPY client/src ./src
+EXPOSE 3000 ## could also be 3001, React by default is 3000
+CMD ["npm", "start"]
+```

@@ -39,3 +39,7 @@ COPY client/src ./src
 EXPOSE 3000 ## could also be 3001, React by default is 3000
 CMD ["npm", "start"]
 ```
+Had to manually change the React port from 3000 to 3001 then map across in the container build:
+```
+docker run -p 3001:3001 --name fullstack-module-assignment-container fullstack-module-assignment-image:latest
+```

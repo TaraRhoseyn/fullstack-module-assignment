@@ -1,8 +1,8 @@
-FROM node:latest
-WORKDIR /client/ .
-COPY client/public/ /public
-COPY client/package.json
+FROM node:18
+WORKDIR /client
+COPY client/package.json ./
 RUN npm install
-COPY client/src/ /src
-CMD ["npm", "start"]
+COPY client/public ./public
+COPY client/src ./src
 EXPOSE 3000
+CMD ["npm", "start"]

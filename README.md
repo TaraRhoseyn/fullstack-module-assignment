@@ -15,3 +15,4 @@ Create docker image:
 ```
 docker image build -t fullstack-module-assignment-image .
 ```
+Maybe use (-v) for putting it in verbose mode.

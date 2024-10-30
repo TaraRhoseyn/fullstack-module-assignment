@@ -6,6 +6,17 @@ body, .container {
 }
 
 nav {
-	background-color: #424754;
-	height: 100vh;
+    background-color: #424754;
+    height: 100vh;
+    border-top-right-radius: 1em;  
+    border-bottom-right-radius: 1em; 
+}
+
+
+.text-hover-primary:hover {
+    color: #14E8FF!important;
+}
+
+a {
+	text-decoration: none!important;
 }

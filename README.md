@@ -2,6 +2,20 @@
 
 This repository is for purely educational purposes and submitted for a university assignment.
 
+# Technology used
+
+- **React** for frontend
+- **Node** for backend
+- **Express** for API
+- **MySQL** for database
+
+## Smaller dependencies
+
+- **Bootstrap** for styling, particularly for layout
+- **nodemon** for handling Node server
+- **react-router-dom** for handling routes in React
+- **
+
 # Starting the database
 
 This application uses a MySQL database hosted locally on a machine. To start the database I used the software XAMPP. 

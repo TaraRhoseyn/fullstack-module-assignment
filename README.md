@@ -43,3 +43,15 @@ Had to manually change the React port from 3000 to 3001 then map across in the c
 ```
 docker run -p 3001:3001 --name fullstack-module-assignment-container fullstack-module-assignment-image:latest
 ```
+
+# Database
+
+This application uses a MySQL database hosted locally on a machine. To start the database I used the software XAMPP. 
+
+To run a MySQL database using XAMPP you need to:
+
+1. Access the XAMPP Control Panel on your local machine.
+2. Start the Apache and MySQL databases on the Control Panel.
+3. Go to your 'http://localhost'
+4. Click 'MyPHPAdmin'
+5. Create a new database

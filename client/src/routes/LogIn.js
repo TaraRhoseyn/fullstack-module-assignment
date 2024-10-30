@@ -18,15 +18,17 @@ function LogIn() {
 	const handleSubmit = async e => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('http://localhost:5000/api/login', formData);
-			alert(response.data.message);
-			// Redirect user to the dashboard or home page upon successful login
-			window.location.href = '/'; // Uncomment if using a dashboard page
+		  const response = await axios.post(
+			'http://localhost:5000/api/login', 
+			formData, 
+			{ withCredentials: true }
+		  );
+		  alert(response.data.message);
 		} catch (error) {
-			console.error('Login error:', error);
-			alert(error.response?.data?.error || 'Failed to log in');
+		  console.error('Login error details:', error.response || error);
+		  alert(error.response?.data?.error || 'Failed to log in');
 		}
-	};
+	  };
 
 	return (
 		<div className="container">

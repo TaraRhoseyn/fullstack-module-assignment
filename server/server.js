@@ -116,7 +116,32 @@ app.post('/api/addFurniture', (req, res) => {
     );
 });
 
-// Fetch all furniture items for the logged-in user
+
+
+app.delete('/api/furniture/:id', (req, res) => {
+    const furniture_id = req.params.id;
+
+    const query = `
+      DELETE FROM furniture_details 
+      WHERE furniture_id = ?
+    `;
+
+    db.query(query, [furniture_id], (err, result) => {
+        if (err) {
+            console.error('Error deleting furniture:', err);
+            return res.status(500).json({ error: 'Failed to delete furniture' });
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: 'Furniture not found' });
+        }
+
+        res.status(200).json({ message: 'Furniture deleted successfully' });
+    });
+});
+
+
+
 app.get('/api/userFurniture', (req, res) => {
     const user_id = req.session.user_id;
 

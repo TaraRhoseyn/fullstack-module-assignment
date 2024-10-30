@@ -141,6 +141,53 @@ app.delete('/api/furniture/:id', (req, res) => {
 });
 
 
+app.put('/api/furniture/:id', (req, res) => {
+    const furniture_id = req.params.id;
+    const { furniture_make, furniture_model, furniture_color, furniture_type, location, year, video_url, image_url } = req.body;
+
+    const query = `
+      UPDATE furniture_details 
+      SET furniture_make = ?, furniture_model = ?, furniture_color = ?, furniture_type = ?, location = ?, year = ?, video_url = ?, image_url = ? 
+      WHERE furniture_id = ?
+    `;
+
+    db.query(query, [furniture_make, furniture_model, furniture_color, furniture_type, location, year, video_url, image_url, furniture_id], (err, result) => {
+        if (err) {
+            console.error('Error updating furniture:', err);
+            return res.status(500).json({ error: 'Failed to update furniture' });
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: 'Furniture not found' });
+        }
+
+        res.status(200).json({ message: 'Furniture updated successfully' });
+    });
+});
+
+// Fetch furniture details by ID
+app.get('/api/furniture/:id', (req, res) => {
+    const furnitureId = req.params.id;
+
+    const query = `
+        SELECT * FROM furniture_details 
+        WHERE furniture_id = ?
+    `;
+
+    db.query(query, [furnitureId], (err, result) => {
+        if (err) {
+            console.error('Error fetching furniture details:', err);
+            return res.status(500).json({ error: 'Failed to fetch furniture details' });
+        }
+
+        if (result.length === 0) {
+            return res.status(404).json({ error: 'Furniture not found' });
+        }
+
+        res.status(200).json(result[0]); // Send the first item as it's the only one expected
+    });
+});
+
 
 app.get('/api/userFurniture', (req, res) => {
     const user_id = req.session.user_id;

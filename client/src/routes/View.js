@@ -1,12 +1,12 @@
-// View.js
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import H1 from '../components/H1';
+import { useNavigate } from 'react-router-dom'; // Updated import
 
 function View() {
     const [furnitureList, setFurnitureList] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate(); // Updated to useNavigate
 
     useEffect(() => {
         const fetchFurniture = async () => {
@@ -35,6 +35,11 @@ function View() {
         }
     };
 
+    const handleEdit = (furniture_id) => {
+        // Redirect to the Edit route with the furniture_id as a query parameter
+        navigate(`/edit/${furniture_id}`); // Updated to use navigate
+    };
+
     return (
         <div className="container">
             <H1>View Furniture</H1>
@@ -53,12 +58,13 @@ function View() {
                                     <p><strong>Location:</strong> {item.location}</p>
                                     <p><strong>Year:</strong> {item.year}</p>
                                     {item.image_url && <img src={item.image_url} alt="Furniture" width="200" />}
+                                    <button onClick={() => handleEdit(item.furniture_id)}>Edit</button>
                                     <button onClick={() => handleDelete(item.furniture_id)}>Delete</button>
                                 </li>
                             ))}
                         </ul>
                     ) : (
-                        <p>You haven't added any furniture yet...</p>
+                        <p>No furniture found for this user.</p>
                     )}
                 </div>
             )}

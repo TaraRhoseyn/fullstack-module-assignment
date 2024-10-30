@@ -7,16 +7,12 @@ function Navbar() {
 			<Link to="/">
 				<p>Home</p>
 			</Link>
-			<Link to="/edit">
-				<p>Edit</p>
-			</Link>
 			<Link to="/add">
 				<p>Add</p>
 			</Link>
 			<Link to="/view">
 				<p>View</p>
 			</Link>
-			
 			<Link to="/login">
 				<p>LogIn</p>
 			</Link>

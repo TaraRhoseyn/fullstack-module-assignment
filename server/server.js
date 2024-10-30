@@ -116,6 +116,30 @@ app.post('/api/addFurniture', (req, res) => {
     );
 });
 
+// Fetch all furniture items for the logged-in user
+app.get('/api/userFurniture', (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (!user_id) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const query = `
+      SELECT * FROM furniture_details 
+      WHERE user_id = ?
+    `;
+
+    db.query(query, [user_id], (err, results) => {
+        if (err) {
+            console.error('Error fetching furniture:', err);
+            return res.status(500).json({ error: 'Failed to fetch furniture' });
+        }
+
+        res.status(200).json(results);
+    });
+});
+
+
 
 app.listen(5000, () => {
     console.log("SUCCESS: Express is listening on Port 5000");

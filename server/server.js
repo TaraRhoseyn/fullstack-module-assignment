@@ -47,6 +47,31 @@ app.post('/api/signup', (req, res) => {
     );
 });
 
+// Creates an API endpoint to log a user in:
+app.post('/api/login', (req, res) => {
+    const { username, password } = req.body;
+  
+    const query = `
+      SELECT * FROM users 
+      WHERE username = ? AND password = ?
+    `;
+  
+    db.query(query, [username, password], (err, result) => {
+      if (err) {
+        console.error('Error during login:', err);
+        return res.status(500).json({ error: 'An error occurred during login' });
+      }
+  
+      if (result.length > 0) {
+        // If a matching user is found, send a success response
+        res.status(200).json({ message: 'Login successful' });
+      } else {
+        // If no match is found, send an unauthorized response
+        res.status(401).json({ error: 'Invalid username or password' });
+      }
+    });
+  });
+
 app.listen(5000, () => {
     console.log("Success: Express is listening on Port 5000");
 })

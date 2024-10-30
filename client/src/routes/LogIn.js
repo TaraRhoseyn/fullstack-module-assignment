@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; 
 import H1 from '../components/H1';
 
 function LogIn() {
@@ -9,6 +10,7 @@ function LogIn() {
 		username: '',
 		password: ''
 	});
+	const navigate = useNavigate();
 
 	const handleChange = e => {
 		const { name, value } = e.target;
@@ -18,17 +20,18 @@ function LogIn() {
 	const handleSubmit = async e => {
 		e.preventDefault();
 		try {
-		  const response = await axios.post(
-			'http://localhost:5000/api/login', 
-			formData, 
-			{ withCredentials: true }
-		  );
-		  alert(response.data.message);
+			const response = await axios.post('http://localhost:5000/api/login', formData, { withCredentials: true });
+			alert(response.data.message);
+			if (response.data.user_id) {
+				localStorage.setItem('user_id', response.data.user_id); 
+			}
+			navigate('/');
+			window.location.reload();
 		} catch (error) {
-		  console.error('Login error details:', error.response || error);
-		  alert(error.response?.data?.error || 'Failed to log in');
+			console.error('Login error:', error);
+			alert(error.response?.data?.error || 'Failed to log in');
 		}
-	  };
+	};
 
 	return (
 		<div className="container">

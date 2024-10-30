@@ -1,6 +1,7 @@
+// Imports:
 import './styles/App.css';
 import React from 'react';
-// routes:
+// Routes:
 import About from './routes/About';
 import Add from './routes/Add';
 import Edit from './routes/Edit';
@@ -8,9 +9,9 @@ import Home from './routes/Home';
 import LogIn from './routes/LogIn';
 import SignUp from './routes/SignUp';
 import View from './routes/View';
-// components:
+// Components:
 import Navbar from './components/Navbar';
-// browser router:
+// Browser router:
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {

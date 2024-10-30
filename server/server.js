@@ -60,7 +60,8 @@ app.post('/api/signup', (req, res) => {
     );
 });
 
-// Creates an API endpoint to log a user in:
+
+// Creates an API endpoint to log in a user:
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
 
@@ -78,9 +79,8 @@ app.post('/api/login', (req, res) => {
 
         if (result.length > 0) {
             const user = result[0];
-            // Saves user_id from DB to the session
-            req.session.user_id = user.user_id;
-            res.status(200).json({ message: 'Login successful' });
+            req.session.user_id = user.user_id; // Store in session
+            res.status(200).json({ message: 'Login successful', user_id: user.user_id }); // Include user_id in response
         } else {
             res.status(401).json({ error: 'Invalid username or password' });
         }
@@ -88,8 +88,7 @@ app.post('/api/login', (req, res) => {
 });
 
 
-
-// add furniture
+// Creates an API endpoint to add furniture items to the DB:
 app.post('/api/addFurniture', (req, res) => {
     const { furniture_make, furniture_model, furniture_color, furniture_type, location, year, video_url, image_url } = req.body;
     const user_id = req.session.user_id;
@@ -117,7 +116,7 @@ app.post('/api/addFurniture', (req, res) => {
 });
 
 
-
+// Creates an API endpoint to delete a furniture item from the DB:
 app.delete('/api/furniture/:id', (req, res) => {
     const furniture_id = req.params.id;
 
@@ -141,6 +140,7 @@ app.delete('/api/furniture/:id', (req, res) => {
 });
 
 
+// Creates an API endpoint to edit a furniture item and update the DB:
 app.put('/api/furniture/:id', (req, res) => {
     const furniture_id = req.params.id;
     const { furniture_make, furniture_model, furniture_color, furniture_type, location, year, video_url, image_url } = req.body;
@@ -165,7 +165,8 @@ app.put('/api/furniture/:id', (req, res) => {
     });
 });
 
-// Fetch furniture details by ID
+
+// Fetches furniture details by ID from the DB:
 app.get('/api/furniture/:id', (req, res) => {
     const furnitureId = req.params.id;
 
@@ -184,11 +185,12 @@ app.get('/api/furniture/:id', (req, res) => {
             return res.status(404).json({ error: 'Furniture not found' });
         }
 
-        res.status(200).json(result[0]); // Send the first item as it's the only one expected
+        res.status(200).json(result[0]);
     });
 });
 
 
+// Fetches furniture by user_id from the DB:
 app.get('/api/userFurniture', (req, res) => {
     const user_id = req.session.user_id;
 

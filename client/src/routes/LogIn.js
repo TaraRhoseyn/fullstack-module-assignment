@@ -1,5 +1,3 @@
-// LogIn.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
@@ -36,24 +34,26 @@ function LogIn() {
 	return (
 		<div className="container">
 			<H1>Log in</H1>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="p-5 pt-0">
+				<label for="username" className="form-label col-12">Username</label>
 				<input
 					type="text"
 					name="username"
-					placeholder="Username"
+					className="col-6 mb-2"
 					value={formData.username}
 					onChange={handleChange}
 					required
 				/>
+				<label for="password" className="form-label col-12">Password</label>
 				<input
 					type="password"
 					name="password"
-					placeholder="Password"
+					className="col-6 mb-4"
 					value={formData.password}
 					onChange={handleChange}
 					required
 				/>
-				<button type="submit">Log In</button>
+				<button type="submit" className="row">Log In</button>
 			</form>
 		</div>
 	);

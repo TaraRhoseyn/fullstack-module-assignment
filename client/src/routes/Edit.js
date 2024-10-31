@@ -55,16 +55,24 @@ function Edit() {
     return (
         <div className="container">
             <H1>Edit Furniture</H1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="furniture_make" value={formData.furniture_make} onChange={handleChange} required />
-                <input type="text" name="furniture_model" value={formData.furniture_model} onChange={handleChange} required />
-                <input type="text" name="furniture_color" value={formData.furniture_color} onChange={handleChange} required />
-                <input type="text" name="furniture_type" value={formData.furniture_type} onChange={handleChange} required />
-                <input type="text" name="location" value={formData.location} onChange={handleChange} required />
-                <input type="text" name="year" value={formData.year} onChange={handleChange} required />
-                <input type="text" name="video_url" value={formData.video_url} onChange={handleChange} />
-                <input type="text" name="image_url" value={formData.image_url} onChange={handleChange} />
-                <button type="submit">Update</button>
+            <form onSubmit={handleSubmit} className="p-5 pt-0">
+                <label for="furniture_make" className="form-label col-12">Make</label>
+                <input type="text" name="furniture_make" className="col-6 mb-4" value={formData.furniture_make} onChange={handleChange} required />
+                <label for="furniture_model" className="form-label col-12">Model</label>
+                <input type="text" name="furniture_model" className="col-6 mb-4" value={formData.furniture_model} onChange={handleChange} required />
+                <label for="furniture_color" className="form-label col-12">Colour</label>
+                <input type="text" name="furniture_color" className="col-6 mb-4" value={formData.furniture_color} onChange={handleChange} required />
+                <label for="furniture_type" className="form-label col-12">Type</label>
+                <input type="text" name="furniture_type" className="col-6 mb-4" value={formData.furniture_type} onChange={handleChange} required />
+                <label for="location" className="form-label col-12">Location</label>
+                <input type="text" name="location" className="col-6 mb-4" value={formData.location} onChange={handleChange} required />
+                <label for="year" className="form-label col-12">Year</label>
+                <input type="text" name="year" className="col-6 mb-4" value={formData.year} onChange={handleChange} required />
+                <label for="video_url" className="form-label col-12">Video URL</label>
+                <input type="text" name="video_url" className="col-6 mb-4" value={formData.video_url} onChange={handleChange} />
+                <label for="image_url" className="form-label col-12">Image URL</label>
+                <input type="text" name="image_url" className="col-6 mb-4" value={formData.image_url} onChange={handleChange} />
+                <button type="submit" className="row">Update</button>
             </form>
         </div>
     );

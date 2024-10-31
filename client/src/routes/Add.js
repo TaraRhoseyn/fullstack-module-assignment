@@ -53,70 +53,80 @@ function Add() {
   return (
     <div className="container">
       <H1>Add Furniture</H1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="p-5 pt-0">
+        <label for="furniture_make" className="form-label col-12">Make</label>
         <input
           type="text"
           name="furniture_make"
-          placeholder="Furniture Make"
+          className="col-6 mb-4"
           value={formData.furniture_make}
           onChange={handleChange}
           required
         />
+        <label for="furniture_model" className="form-label col-12">Model</label>
         <input
           type="text"
           name="furniture_model"
-          placeholder="Furniture Model"
+          className="col-6 mb-4"
           value={formData.furniture_model}
           onChange={handleChange}
           required
         />
+        <label for="furniture_color" className="form-label col-12">Colour</label>
         <input
           type="text"
           name="furniture_color"
-          placeholder="Furniture Color"
+          className="col-6 mb-4"
           value={formData.furniture_color}
           onChange={handleChange}
           required
         />
+        <label for="furniture_type" className="form-label col-12">Type</label>
         <input
           type="text"
           name="furniture_type"
-          placeholder="Furniture Type"
+          className="col-6 mb-4"
           value={formData.furniture_type}
           onChange={handleChange}
           required
         />
+        <label for="location" className="form-label col-12">Location</label>
         <input
           type="text"
           name="location"
-          placeholder="Location"
+          className="col-6 mb-4"
           value={formData.location}
           onChange={handleChange}
           required
         />
+        <label for="year" className="form-label col-12">Year</label>
         <input
           type="text"
           name="year"
-          placeholder="Year"
+          className="col-6 mb-4"
           value={formData.year}
           onChange={handleChange}
           required
         />
+        <label for="video_url" className="form-label col-12">Video URL</label>
         <input
           type="text"
           name="video_url"
-          placeholder="Video URL"
+          className="col-6 mb-4"
           value={formData.video_url}
           onChange={handleChange}
+          required
         />
+        <label for="image_url" className="form-label col-12">Image URL</label>
         <input
           type="text"
           name="image_url"
-          placeholder="Image URL"
+          className="col-6 mb-4"
           value={formData.image_url}
           onChange={handleChange}
+          required
         />
-        <button type="submit">Add Furniture</button>
+        <button type="submit" className="row">Add Furniture</button>
       </form>
     </div>
   );

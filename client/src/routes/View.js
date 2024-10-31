@@ -48,21 +48,57 @@ function View() {
             ) : (
                 <div>
                     {furnitureList.length > 0 ? (
-                        <ul>
+                        <div className="row">
                             {furnitureList.map((item) => (
-                                <li key={item.furniture_id}>
-                                    <p><strong>Make:</strong> {item.furniture_make}</p>
-                                    <p><strong>Model:</strong> {item.furniture_model}</p>
-                                    <p><strong>Color:</strong> {item.furniture_color}</p>
-                                    <p><strong>Type:</strong> {item.furniture_type}</p>
-                                    <p><strong>Location:</strong> {item.location}</p>
-                                    <p><strong>Year:</strong> {item.year}</p>
-                                    {item.image_url && <img src={item.image_url} alt="Furniture" width="200" />}
-                                    <button onClick={() => handleEdit(item.furniture_id)}>Edit</button>
-                                    <button onClick={() => handleDelete(item.furniture_id)}>Delete</button>
-                                </li>
+                                <div className="col-md-6 mb-4" key={item.furniture_id}>
+                                    <div className="d-flex p-5 pt-0">
+                                        {item.image_url && (
+                                            <img 
+                                                src={item.image_url} 
+                                                alt="Furniture" 
+                                                className="me-3" 
+                                                style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '8px' }}
+                                            />
+                                        )}
+                                        <div>
+                                            <p><strong>Make:</strong> {item.furniture_make}</p>
+                                            <p><strong>Model:</strong> {item.furniture_model}</p>
+                                            <p><strong>Color:</strong> {item.furniture_color}</p>
+                                            <p><strong>Type:</strong> {item.furniture_type}</p>
+                                            <p><strong>Location:</strong> {item.location}</p>
+                                            <p><strong>Year:</strong> {item.year}</p>
+                                            {item.video_url && (
+                                            <a 
+                                                href={item.video_url} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer" 
+                                                className="text-primary d-block mt-2"
+                                            >
+                                                Watch video
+                                            </a>
+                                        )}
+                                            <div className="mt-2">
+                                                <button 
+                                                    className="bg-transparent btn-sm view-btn border"
+                                                    onClick={() => handleEdit(item.furniture_id)}
+                                                >
+                                                    <i className="bi bi-pencil-square me-2"></i>
+                                                    Edit
+                                                </button>
+                                                <button 
+                                                    className="bg-transparent btn-sm view-btn border"
+                                                    id="delete-btn"
+                                                    onClick={() => handleDelete(item.furniture_id)}
+                                                >
+                                                    <i className="bi bi-x-square me-2"></i>
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     ) : (
                         <p>No furniture found for this user.</p>
                     )}
@@ -70,6 +106,7 @@ function View() {
             )}
         </div>
     );
+    
 }
 
 export default View;

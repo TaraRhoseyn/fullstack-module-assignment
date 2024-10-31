@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import H1 from '../components/H1';
+import { Link  } from 'react-router-dom';
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -158,7 +159,12 @@ function SignUp() {
           value={formData.telephone} 
           onChange={handleChange} 
           required />
-        <button type="submit" className="row">Sign Up</button>
+        <div className="d-flex flex-row">
+					<button type="submit">Sign up</button>
+					<Link to="/login">
+						<button className="secondary-btn border border-3">Log in</button>
+					</Link>
+				</div>
       </form>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
 import H1 from '../components/H1';
+import { Link  } from 'react-router-dom';
 
 function LogIn() {
 	const [formData, setFormData] = useState({
@@ -53,7 +54,13 @@ function LogIn() {
 					onChange={handleChange}
 					required
 				/>
-				<button type="submit" className="row">Log In</button>
+				<div className="d-flex flex-row">
+					<button type="submit">Log in</button>
+					<Link to="/signup">
+						<button className="secondary-btn border border-3">Sign up</button>
+					</Link>
+				</div>
+				
 			</form>
 		</div>
 	);

@@ -73,3 +73,16 @@ button:hover {
     background-color: rgb(173, 4, 4)!important;
     border-color: rgb(173, 4, 4)!important;
 }
+
+.secondary-btn {
+    margin-left: 10px!important;
+    background-color: transparent!important;
+    border-color: #ddf7fa!important;
+    color: #ddf7fa!important;
+}
+
+.secondary-btn:hover {
+    background-color: #424754!important;
+    color: white!important;
+    border-color: #424754!important;
+}

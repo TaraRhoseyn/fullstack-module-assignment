@@ -10,8 +10,16 @@ nav {
     height: 100vh;
     border-top-right-radius: 1em;  
     border-bottom-right-radius: 1em; 
+    position: fixed;
+    top: 0;                
+    left: 0;               
+    z-index: 1000;   
 }
 
+.container {
+    margin-left: 250px;
+    padding: 20px;     
+}
 
 .text-hover-primary:hover {
     color: #14E8FF!important;

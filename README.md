@@ -14,7 +14,7 @@ This repository is for purely educational purposes and submitted for a universit
 - **Bootstrap** for styling, particularly for layout
 - **nodemon** for handling Node server
 - **react-router-dom** for handling routes in React
-- **
+- **XAMPP** for running the SQL server
 
 # Starting the database
 

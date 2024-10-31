@@ -63,7 +63,7 @@ function View() {
                                         <div>
                                             <p><strong>Make:</strong> {item.furniture_make}</p>
                                             <p><strong>Model:</strong> {item.furniture_model}</p>
-                                            <p><strong>Color:</strong> {item.furniture_color}</p>
+                                            <p><strong>Colour:</strong> {item.furniture_color}</p>
                                             <p><strong>Type:</strong> {item.furniture_type}</p>
                                             <p><strong>Location:</strong> {item.location}</p>
                                             <p><strong>Year:</strong> {item.year}</p>

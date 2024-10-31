@@ -4,7 +4,7 @@ import H1 from '../components/H1'
 function Home() {
 	return (
 		<div className="container">
-			<H1>Home</H1>
+			<H1>Welcome</H1>
 		</div>
 	)
 }

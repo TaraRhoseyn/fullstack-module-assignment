@@ -162,7 +162,7 @@ function SignUp() {
         <div className="d-flex flex-row">
 					<button type="submit">Sign up</button>
 					<Link to="/login">
-						<button className="secondary-btn border border-3">Log in</button>
+						<button className="secondary-btn border border-2">Log in</button>
 					</Link>
 				</div>
       </form>

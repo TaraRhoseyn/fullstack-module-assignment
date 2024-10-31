@@ -77,8 +77,8 @@ button:hover {
 .secondary-btn {
     margin-left: 10px!important;
     background-color: transparent!important;
-    border-color: #ddf7fa!important;
-    color: #ddf7fa!important;
+    border-color: #000000!important;
+    color: #000000!important;
 }
 
 .secondary-btn:hover {

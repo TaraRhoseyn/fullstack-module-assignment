@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Check Environment') {
             steps {
-                // Check Node and npm versions
+                // Check Node.js and npm versions
                 sh 'node --version'
                 sh 'npm --version'
             }
@@ -31,24 +31,28 @@ pipeline {
             }
         }
 
-        stage('Start Express Server') {
+        stage('Start Servers') {
             steps {
-                // Start the Express server
+                // Start both servers in the background
                 sh '''
+                    # Start Express server in the background
                     cd server
                     nohup npm start &
+
+                    # Start React server on port 3001 in the background
+                    cd ../client
+                    nohup PORT=3001 npm start &
                 '''
             }
         }
+    }
 
-        stage('Start React Server') {
-            steps {
-                // Start the React server
-                sh '''
-                    cd client
-                    npm start
-                '''
-            }
+    post {
+        always {
+            // Cleanup background processes after the pipeline finishes
+            sh '''
+                pkill -f "npm start" || true
+            '''
         }
     }
 }

@@ -19,13 +19,13 @@ pipeline {
             steps {
                 // Install dependencies for the Express server
                 sh '''
-                    cd server
-                    npm install
+                    cd server 
+                    npm install --verbose
                 '''
                 // Install dependencies for the React client
                 sh '''
                     cd client
-                    npm install
+                    npm install --verbose
                 '''
             }
         }

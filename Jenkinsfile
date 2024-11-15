@@ -35,7 +35,7 @@ pipeline {
             steps {
                 sh '''
                     cd server
-                    nohup npm start &
+                    npm start
                 '''
             }
         }
@@ -45,7 +45,7 @@ pipeline {
                 sh '''
                     cd client
                     export PORT=3001
-                    nohup npm start &
+                    npm start
                 '''
             }
         }

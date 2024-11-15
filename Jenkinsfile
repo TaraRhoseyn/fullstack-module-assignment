@@ -43,7 +43,7 @@ pipeline {
         stage('Start React server') {
             steps {
                 sh '''
-                    cd ../client
+                    cd client
                     export PORT=3001
                     nohup npm start &
                 '''

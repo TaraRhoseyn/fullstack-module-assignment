@@ -2,15 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('w/out docker') {
-            steps {
-                sh '''
-                    echo "without docker"
-                    ls -la
-                '''
-            }
-        }
-        stage('w docker') {
+        stage('Start docker') {
             agent {
                 docker {
                     image 'node:18'
@@ -18,11 +10,42 @@ pipeline {
                 }
             }
             steps {
-                sh '''
-                    echo "with docker"
-                    ls -la
-                '''
+                // Check Node and npm have installed correctly
+                sh 'node --version'
                 sh 'npm --version'
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                // Install express
+                sh '''
+                    cd server
+                    npm install
+                '''
+                // Install react
+                sh '''
+                    cd client
+                    npm install
+                '''
+            }
+        }
+
+        stage('Start Express server') {
+            steps {
+                sh '''
+                    cd server
+                    npm start
+                '''
+            }
+        }
+
+        stage('Start React server') {
+            steps {
+                sh '''
+                    cd client
+                    npm start
+                '''
             }
         }
     }

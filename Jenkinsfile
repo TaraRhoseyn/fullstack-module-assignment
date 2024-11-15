@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'node:18'
             reuseNode true
+            args '--network=host'
         }
     }
 

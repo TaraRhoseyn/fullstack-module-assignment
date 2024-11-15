@@ -1,29 +1,28 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18'
+            reuseNode true
+        }
+    }
 
     stages {
-        stage('Start docker') {
-            agent {
-                docker {
-                    image 'node:18'
-                    reuseNode true
-                }
-            }
+        stage('Check Environment') {
             steps {
-                // Check Node and npm have installed correctly
+                // Check Node and npm versions
                 sh 'node --version'
                 sh 'npm --version'
             }
         }
 
-        stage('Install dependencies') {
+        stage('Install Dependencies') {
             steps {
-                // Install express
+                // Install dependencies for the Express server
                 sh '''
                     cd server
                     npm install
                 '''
-                // Install react
+                // Install dependencies for the React client
                 sh '''
                     cd client
                     npm install
@@ -31,17 +30,19 @@ pipeline {
             }
         }
 
-        stage('Start Express server') {
+        stage('Start Express Server') {
             steps {
+                // Start the Express server
                 sh '''
                     cd server
-                    npm start
+                    nohup npm start &
                 '''
             }
         }
 
-        stage('Start React server') {
+        stage('Start React Server') {
             steps {
+                // Start the React server
                 sh '''
                     cd client
                     npm start

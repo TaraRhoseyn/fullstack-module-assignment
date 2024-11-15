@@ -8,20 +8,46 @@ pipeline {
         }
     }
 
-    services {
-        mysql {
-            image 'mysql:latest'
-            environment {
-                MYSQL_ROOT_PASSWORD = 'root'
-                MYSQL_DATABASE = 'furniturezz'
-                MYSQL_USER = 'root'
-                MYSQL_PASSWORD = ''
-            }
-            ports = ['3306:3306']
-        }
+    // services {
+    //     mysql {
+    //         image 'mysql:latest'
+    //         environment {
+    //             MYSQL_ROOT_PASSWORD = 'root'
+    //             MYSQL_DATABASE = 'furniturezz'
+    //             MYSQL_USER = 'root'
+    //             MYSQL_PASSWORD = ''
+    //         }
+    //         ports = ['3306:3306']
+    //     }
+    // }
+
+    environment {
+        MYSQL_ROOT_PASSWORD = 'root'
+        MYSQL_DATABASE = 'furniturezz'
+        MYSQL_USER = 'root'
+        MYSQL_PASSWORD = ''
     }
 
     stages {
+
+        stage('Start MySQL Container') {
+            steps {
+                script {
+                    sh '''
+                        docker run -d --name mysql-container \
+                        -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
+                        -e MYSQL_DATABASE=$MYSQL_DATABASE \
+                        -e MYSQL_USER=$MYSQL_USER \
+                        -e MYSQL_PASSWORD=$MYSQL_PASSWORD \
+                        -p 3306:3306 \
+                        mysql:latest
+                    '''
+                    // Wait for MySQL to be ready
+                    sh 'sleep 20'
+                }
+            }
+        }
+
         stage('Check Environment') {
             steps {
                 // Check Node.js and npm versions

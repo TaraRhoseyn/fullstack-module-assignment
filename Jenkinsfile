@@ -3,7 +3,21 @@ pipeline {
         docker {
             image 'node:18'
             reuseNode true
-            args '--network=host'
+            // args '--network=host'
+            args '-p 3000:3000 -p 3001:3001 --link mysql-container:mysql'
+        }
+    }
+
+    services {
+        mysql {
+            image 'mysql:latest'
+            environment {
+                MYSQL_ROOT_PASSWORD = 'root'
+                MYSQL_DATABASE = 'furniturezz'
+                MYSQL_USER = 'root'
+                MYSQL_PASSWORD = ''
+            }
+            ports = ['3306:3306']
         }
     }
 

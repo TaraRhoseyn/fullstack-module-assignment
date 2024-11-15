@@ -41,7 +41,8 @@ pipeline {
 
                     # Start React server on port 3001 in the background
                     cd ../client
-                    nohup PORT=3001 npm start &
+                    export PORT=3001
+                    nohup npm start &
                 '''
             }
         }

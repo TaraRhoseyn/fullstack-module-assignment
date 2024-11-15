@@ -51,12 +51,12 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Cleanup background processes after the pipeline finishes
-            sh '''
-                pkill -f "npm start" || true
-            '''
-        }
-    }
+    // post {
+    //     always {
+    //         // Cleanup background processes after the pipeline finishes
+    //         sh '''
+    //             pkill -f "npm start" || true
+    //         '''
+    //     }
+    // }
 }

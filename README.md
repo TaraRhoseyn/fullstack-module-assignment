@@ -22,11 +22,12 @@ This application uses a MySQL database hosted locally on a machine. To start the
 
 To run a MySQL database using XAMPP you need to:
 
-1. Access the XAMPP Control Panel on your local machine.
-2. Start the Apache and MySQL databases on the Control Panel.
-3. Go to your 'http://localhost'
-4. Click 'MyPHPAdmin'
-5. Create a new database
+1. Install XAMPP
+2. Open XAMPP Control Panel
+3. Click 'Start' on Apache server and MySQL server
+4. Go to your 'http://localhost'
+5. Click 'MyPHPAdmin'
+6. Create a new database
 
 # Starting the backend server
 Change directory into the correct dir:

@@ -31,15 +31,18 @@ pipeline {
             }
         }
 
-        stage('Start Servers') {
+        stage('Start Express server') {
             steps {
-                // Start both servers in the background
                 sh '''
-                    # Start Express server in the background
                     cd server
                     nohup npm start &
+                '''
+            }
+        }
 
-                    # Start React server on port 3001 in the background
+        stage('Start React server') {
+            steps {
+                sh '''
                     cd ../client
                     export PORT=3001
                     nohup npm start &

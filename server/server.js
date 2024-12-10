@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 // Express set up:
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:3001',
+    origin: 'http://localhost:3000',
     credentials: true
 }));
 app.use(express.json());
@@ -28,7 +28,6 @@ const db = mysql.createConnection({
     user: "root",
     password: "",
     database: "furniturezz",
-    port: 3306
 })
 
 db.connect(err => {

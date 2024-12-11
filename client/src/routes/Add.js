@@ -1,5 +1,3 @@
-// Add.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import H1 from '../components/H1';

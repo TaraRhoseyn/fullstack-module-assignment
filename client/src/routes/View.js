@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import H1 from '../components/H1';
-import { useNavigate } from 'react-router-dom'; // Updated import
+import { useNavigate } from 'react-router-dom';
 
 function View() {
     const [furnitureList, setFurnitureList] = useState([]);
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate(); // Updated to useNavigate
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchFurniture = async () => {
@@ -36,8 +36,7 @@ function View() {
     };
 
     const handleEdit = (furniture_id) => {
-        // Redirect to the Edit route with the furniture_id as a query parameter
-        navigate(`/edit/${furniture_id}`); // Updated to use navigate
+        navigate(`/edit/${furniture_id}`);
     };
 
     return (

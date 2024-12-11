@@ -27,7 +27,7 @@ To run a MySQL database using XAMPP you need to:
 3. Click 'Start' on Apache server and MySQL server
 4. Go to your 'http://localhost'
 5. Click 'MyPHPAdmin'
-6. Create a new database
+6. Create a new database using the SQL script in the root of this project.
 
 # Starting the backend server
 Change directory into the correct dir:
